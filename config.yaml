@@ -1,0 +1,82 @@
+data:
+  DA_batch_size: 30
+  batch_size: 30
+  category: bottle
+  data_dir: /home/ubuntu/virg/MVTec
+  image_size: 256
+  imput_channel: 4
+  manualseed: -1
+  mask: true
+  name: MVTec
+metrics:
+  image_level_AUROC: true
+  image_level_F1Score: true
+  pixel_level_AUROC: true
+  pixel_level_F1Score: true
+  pro: true
+  threshold:
+    manual_image: null
+    manual_pixel: null
+    method: adaptive
+model:
+  DA_epochs: 1 # nr. of fine tune epochs for fe
+  DA_fine_tune: 1 
+  DA_learning_rate: 1e-4
+  DA_rnd_step: true # pick noising level for DA according to uniform distribution
+  dynamic_steps: true # Dynamic implicit conditioning
+  KNN_metric: l1
+  anomap_excluded_layers: # excluded feature layers for anomaly map creation
+  - 0
+  anomap_weighting: 0.85 # weight for latent anomaly map
+  attn_reso:
+  - 32
+  - 16
+  - 8
+  - 4
+  beta_end: 0.0195
+  beta_start: 0.0015
+  channel_mults:
+  - 1
+  - 2
+  - 2
+  - 4
+  - 4
+  checkpoint_dir: checkpoints/MVTec
+  checkpoint_epochs: 300
+  checkpoint_name: weights
+  consistency_decoder: 0 # consistency decoder for better image quality at the cost of additional runtime
+  device: cuda
+  distance_metric_eval: combined
+  downscale_first: 1 # noiseless scaling
+  ema: true
+  ema_rate: 0.999
+  epochs: 300
+  eta: 0 # 0 corresponds to DDIM sampling and 1 to DDPM
+  eta2: 4 # DDAD conditioning
+  exp_name: default
+  fe_backbone: resnet34
+  head_channel: -1
+  knn_k: 20
+  latent: true
+  latent_backbone: VAE
+  latent_size: 32
+  learning_rate: 1e-4
+  multi_gpu: false
+  n_head: 8
+  noise: Gaussian
+  noise_sampling: 0 # noise image or not
+  num_workers: 30
+  optimizer: AdamW
+  save_model: true
+  schedule: linear
+  seed: 42
+  selected_features: # selected layer for KNN search
+  - 1
+  skip: 8 # steps to skip during inference
+  skip_DA: 8 # steps to skip during domain adaptation
+  test_trajectoy_steps: 80 # maximum noising level
+  test_trajectoy_steps_DA: 80 # maximum noising level for domain adaptation
+  trajectory_steps: 1000
+  unet_channel: 192
+  visual_all: true # additional visual output of heatmaps
+  weight_decay: 0.01
