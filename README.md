@@ -1,6 +1,6 @@
-# D3AD: Dynamic Denoising Diffusion Probabilistic Model for Anomaly Detection
+# Dynamic Addition of Noise in a Diffusion Model for Anomaly Detection
 ![D3AD](imgs/D3AD.png)
-This repo contains the official implementation of [D3AD](https://arxiv.org/abs/2401.04463)
+This repo contains the official implementation of [Dynamic Addition of Noise in a Diffusion Model for Anomaly Detection](https://openaccess.thecvf.com/content/CVPR2024W/VAND/papers/Tebbe_Dynamic_Addition_of_Noise_in_a_Diffusion_Model_for_Anomaly_CVPRW_2024_paper.pdf)
 ## Setup
 **Install dependencies:**
 ```
@@ -46,10 +46,12 @@ python main.py --eval True
 
 ## Citation
 ```
-@article{tebbe2024d3ad,
-  title={D3AD: Dynamic Denoising Diffusion Probabilistic Model for Anomaly Detection},
-  author={Tebbe, Justin and Tayyub, Jawad},
-  journal={arXiv preprint arXiv:2401.04463},
-  year={2024}
+@InProceedings{Tebbe_2024_CVPR,
+    author    = {Tebbe, Justin and Tayyub, Jawad},
+    title     = {Dynamic Addition of Noise in a Diffusion Model for Anomaly Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2024},
+    pages     = {3940-3949}
 }
 ```
